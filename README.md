@@ -13,7 +13,7 @@ No cry for help should go unheard because of fear, lack of internet access, lang
 
 ---
 
-## 🌍 The Problem
+##  The Problem
 
 Millions of vulnerable people face dangerous situations where reaching help is difficult or impossible.
 
@@ -40,7 +40,7 @@ Traditional emergency systems often assume users can freely call, speak, or acce
 
 ---
 
-## 💡 Our Solution
+##  Our Solution
 
 SafeAid combines AI, SMS technology, voice assistance, and emergency routing into one platform that allows users to request help through multiple channels.
 
@@ -61,15 +61,15 @@ Users can:
 
 ---
 
-## ✨ Core Features
+##  Core Features
 
 
-🚨 Silent SOS via SMS
+ Silent SOS via SMS
 
 Users can trigger emergency alerts using predefined keywords without needing internet access.
 
 
-🤖 AI Voice Hotline
+ AI Voice Hotline
 
 An AI-powered voice assistant can:
 
@@ -82,17 +82,17 @@ An AI-powered voice assistant can:
 • Route cases appropriately.
 
 
-🌐 Multilingual Support
+ Multilingual Support
 
 SafeAid supports multiple local and international languages to ensure accessibility.
 
 
-📍 Intelligent Location Assistance
+ Intelligent Location Assistance
 
 When available, SafeAid helps identify the user’s location and nearest support resources.
 
 
-🏠 Survivor Resource Matching
+ Survivor Resource Matching
 
 The platform recommends:
 
@@ -107,7 +107,7 @@ The platform recommends:
 • Rehabilitation centers
 
 
-📊 Emergency Dashboard
+ Emergency Dashboard
 
 A centralized dashboard for authorized organizations to:
 
@@ -121,7 +121,7 @@ A centralized dashboard for authorized organizations to:
 
 ---
 
-## 🧠 AI Capabilities
+##  AI Capabilities
 
 SafeAid leverages AI to:
 
@@ -140,7 +140,7 @@ SafeAid leverages AI to:
 
 ---
 
-## 🎯 Target Users
+##  Target Users
 
 Primary Users
 
@@ -168,7 +168,7 @@ Secondary Users
 
 ---
 
-## 🏗️ System Architecture
+##  System Architecture
 
 Frontend → Emergency Dashboard
 
@@ -189,7 +189,7 @@ Support Network Layer → NGOs, Shelters, Emergency Contacts
 
 ---
 
-## 🔒 Privacy & Safety
+##  Privacy & Safety
 
 SafeAid is designed with survivor safety as a priority.
 
@@ -214,7 +214,7 @@ Key principles include:
 
 ---
 
-## 📈 Impact Goals
+##  Impact Goals
 
 SafeAid aims to:
 
@@ -230,7 +230,7 @@ SafeAid aims to:
 
 ---
 
-## 🚀 Future Roadmap
+##  Future Roadmap
 
 • Offline-first mobile application
 
@@ -248,7 +248,7 @@ SafeAid aims to:
 
 ---
 
-## 👥 Team
+##  Team
 
 ~ Product Designer
 
@@ -271,7 +271,7 @@ The Team
 
 ---
 
-## ❤️ Built For Impact
+##  Built For Impact
 
 SafeAid was created to ensure that vulnerable individuals can access help when they need it most-safely, discreetly, and intelligently.
 
