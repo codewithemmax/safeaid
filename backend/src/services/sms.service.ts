@@ -8,5 +8,5 @@ const at = AfricasTalking({
 const sms = at.SMS
 
 export async function sendSms(to: string, message: string): Promise<void> {
-  await sms.send({ to: [to], message, from: '' })
+  await sms.send({ to: [to], message, from: process.env.AT_SHORTCODE })
 }
