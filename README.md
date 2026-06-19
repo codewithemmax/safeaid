@@ -199,6 +199,13 @@ Key principles include:
 
 • Responsible AI practices
 
+• Consent-first intake flows
+
+• Role-based access for caseworkers
+
+• Compliance posture aligned with NDPA requirements
+
+
 ---
 
 ## 📈 Impact Goals
