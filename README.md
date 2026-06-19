@@ -6,7 +6,7 @@ SafeAid is a secure, accessible, and intelligent emergency response platform des
 The access help quickly, discreetly, and safely.
 
 
-Our mission is simple:
+### Our mission is simple:
 
 No cry for help should go unheard because of fear, lack of internet access, language barriers, or inability to speak.
 
@@ -17,7 +17,7 @@ No cry for help should go unheard because of fear, lack of internet access, lang
 
 Millions of vulnerable people face dangerous situations where reaching help is difficult or impossible.
 
-Many victims:
+### Many victims:
 
 
 • Cannot safely make phone calls.
@@ -44,7 +44,7 @@ Traditional emergency systems often assume users can freely call, speak, or acce
 
 SafeAid combines AI, SMS technology, voice assistance, and emergency routing into one platform that allows users to request help through multiple channels.
 
-Users can:
+### Users can:
 
 • Send a discreet SOS text message.
 
@@ -64,12 +64,12 @@ Users can:
 ##  Core Features
 
 
- Silent SOS via SMS
+### Silent SOS via SMS
 
 Users can trigger emergency alerts using predefined keywords without needing internet access.
 
 
- AI Voice Hotline
+### AI Voice Hotline
 
 An AI-powered voice assistant can:
 
@@ -82,19 +82,19 @@ An AI-powered voice assistant can:
 • Route cases appropriately.
 
 
- Multilingual Support
+### Multilingual Support
 
 SafeAid supports multiple local and international languages to ensure accessibility.
 
 
- Intelligent Location Assistance
+### Intelligent Location Assistance
 
 When available, SafeAid helps identify the user’s location and nearest support resources.
 
 
- Survivor Resource Matching
+### Survivor Resource Matching
 
-The platform recommends:
+### The platform recommends:
 
 • Shelters
 
@@ -107,9 +107,9 @@ The platform recommends:
 • Rehabilitation centers
 
 
- Emergency Dashboard
+### Emergency Dashboard
 
-A centralized dashboard for authorized organizations to:
+### A centralized dashboard for authorized organizations to:
 
 • View incoming alerts
 
@@ -123,7 +123,7 @@ A centralized dashboard for authorized organizations to:
 
 ##  AI Capabilities
 
-SafeAid leverages AI to:
+### SafeAid leverages AI to:
 
 • Detect emergency intent from messages.
 
@@ -142,7 +142,7 @@ SafeAid leverages AI to:
 
 ##  Target Users
 
-Primary Users
+### Primary Users
 
 • Human trafficking victims
 
@@ -153,7 +153,7 @@ Primary Users
 • Vulnerable populations
 
 
-Secondary Users
+### Secondary Users
 
 • NGOs
 
@@ -193,7 +193,8 @@ Support Network Layer → NGOs, Shelters, Emergency Contacts
 
 SafeAid is designed with survivor safety as a priority.
 
-Key principles include:
+
+### Key principles include:
 
 • Data minimization
 
@@ -216,7 +217,7 @@ Key principles include:
 
 ##  Impact Goals
 
-SafeAid aims to:
+### SafeAid aims to:
 
 • Increase access to emergency support.
 
@@ -250,22 +251,23 @@ SafeAid aims to:
 
 ##  Team
 
-~ Product Designer
+
+### Product Designer
 
 The Team
 
-~ Frontend Developer
+### Frontend Developer
 
 Ibrahim Ashiah Ajoke
 
 
-~ Backend Developer
+### Backend Developer
 
 Emmanuel Olayinka Bolaoluwatipoto
 
 
 
-~ AI/ML Development
+### AI/ML Development
 
 The Team
 
