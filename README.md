@@ -256,6 +256,13 @@ Emmanuel Olayinka Bolaoluwatipoto
 
 The Team
 
+---
 
+## ❤️ Built For Impact
+
+SafeAid was created to ensure that vulnerable individuals can access help when they need it most—safely, discreetly, and intelligently.
+
+
+Technology should not only be smart. It should save lives.
 
 
