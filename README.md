@@ -112,8 +112,11 @@ The platform recommends:
 A centralized dashboard for authorized organizations to:
 
 • View incoming alerts
+
 • Track case statuses
+
 • Monitor response metrics
+
 • Coordinate interventions
 
 ---
@@ -142,8 +145,11 @@ SafeAid leverages AI to:
 Primary Users
 
 • Human trafficking victims
+
 • Abuse survivors
+
 • At-risk individuals
+
 • Vulnerable populations
 
 
