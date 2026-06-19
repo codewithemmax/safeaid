@@ -7,11 +7,11 @@ If you are resuming from a previous session, read this file first before touchin
 
 ## Current phase
 
-Phase 0 — Shared setup
+Phase 2 — Backend: SMS State Machine & AI Gateway
 
 ## Current goal
 
-Create monorepo structure, initialise both packages, and fill context files so both team members can start building in parallel.
+Webhook live, state machine wired, Gemini analysing messages. Ready for Phase 3 (REST API + seed data).
 
 ---
 
@@ -20,13 +20,32 @@ Create monorepo structure, initialise both packages, and fill context files so b
 - [x] U00 — Monorepo created, CLAUDE.md written, all six context files filled
   - Repo: `safeaid/` with `/backend`, `/frontend`, `/context` folders
   - Both team members branched off `main` — Emmanuel on `emmanuel`, teammate on her branch
+- [x] U01 — Supabase schema + client
+  - `backend/src/lib/supabase.ts` — singleton client using SUPABASE_URL + SUPABASE_SERVICE_KEY
+  - `backend/src/types/index.ts` — all types including ResourceType, SmsStep, HelpCenter, SmsSession
+- [x] U02 — Express server scaffold
+  - `backend/src/index.ts` — cors, express.json, express.urlencoded, GET /api/health
+- [x] U03 — Phone hash service
+  - `backend/src/services/hash.service.ts` — SHA-256 via Node crypto
+- [x] U04 — AT webhook receiver
+  - `backend/src/services/sms.service.ts` — sendSms via AT sandbox
+  - `backend/src/routes/webhook.ts` — POST /webhook/sms
+  - `backend/src/controllers/sms.controller.ts` — returns 200 immediately, async state machine
+- [x] U05 — SMS session service
+  - `backend/src/services/session.service.ts` — getSession, upsertSession, clearSession, MENU_MESSAGE
+- [x] U06 — Help center routing service
+  - `backend/src/services/routing.service.ts` — findNearestCenter, formatCenterReply, NO_CENTER_REPLY
+- [x] U07 — Gemini risk analysis service
+  - `backend/src/services/gemini.service.ts` — analyseMessage, FALLBACK, risk+summary only
+- [x] U08 — Full SMS state machine
+  - `backend/src/services/cases.service.ts` — createCase, addMessage
+  - State machine: menu → awaiting_type → awaiting_state → complete
 
 ---
 
 ## In progress
 
-- [ ] U01 — Supabase schema + client (Emmanuel)
-- [ ] U08 — Next.js setup + layout shell (Teammate, parallel)
+- [ ] Phase 3 — REST API (Cases, Messages, Help Centers) + Seed Script
 
 ---
 

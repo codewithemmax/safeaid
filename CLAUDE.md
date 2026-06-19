@@ -10,6 +10,8 @@ Do not skip any file. Do not assume you already know the project.
 5. `context/ai-workflow-rules.md` — how to scope work, handle ambiguity, and verify before moving on
 6. `context/progress-tracker.md` — current phase, what is done, what is in progress, open questions, and what comes next
 
+7. `context/units.md` — This is where will building the project will be divided into units
+
 ---
 
 ## Team ownership
@@ -17,7 +19,7 @@ Do not skip any file. Do not assume you already know the project.
 | Folder | Owner |
 |---|---|
 | `/backend` | Emmanuel |
-| `/frontend` | Teammate |
+| `/frontend` | Asaiah |
 | `/context` | Both — update progress-tracker.md after every unit |
 
 ---
