@@ -7,11 +7,11 @@ If you are resuming from a previous session, read this file first before touchin
 
 ## Current phase
 
-Phase 2 — Backend: SMS State Machine & AI Gateway
+Phase 3 — Backend: REST API & Data
 
 ## Current goal
 
-Webhook live, state machine wired, Gemini analysing messages. Ready for Phase 3 (REST API + seed data).
+All REST endpoints live. Seed script ready. Deploy to Railway and share URL with frontend teammate.
 
 ---
 
@@ -40,12 +40,26 @@ Webhook live, state machine wired, Gemini analysing messages. Ready for Phase 3 
 - [x] U08 — Full SMS state machine
   - `backend/src/services/cases.service.ts` — createCase, addMessage
   - State machine: menu → awaiting_type → awaiting_state → complete
+- [x] U09 — Cases API
+  - `cases.service.ts` extended — getCases (with center join, HIGH→MEDIUM→LOW sort), resolveCase
+  - `backend/src/controllers/cases.controller.ts` — listCases, resolveCaseHandler
+  - `backend/src/routes/cases.ts` — GET /api/cases, POST /api/cases/:id/resolve
+- [x] U10 — Messages API
+  - `cases.service.ts` extended — getMessages (sorted by created_at asc)
+  - `backend/src/controllers/messages.controller.ts` — listMessages
+  - `backend/src/routes/messages.ts` — GET /api/cases/:id/messages
+- [x] U11 — Help Centers API
+  - `backend/src/services/centers.service.ts` — getCenters (filter by state/type), getCentersNearby (Haversine sort)
+  - `backend/src/controllers/centers.controller.ts` — listCenters, nearbyCenters
+  - `backend/src/routes/centers.ts` — GET /api/centers, GET /api/centers/nearby
+- [x] U12 — Seed script
+  - `backend/src/scripts/seed.ts` — 15 real Nigerian orgs across 5 states + 5 demo cases with full message threads
 
 ---
 
 ## In progress
 
-- [ ] Phase 3 — REST API (Cases, Messages, Help Centers) + Seed Script
+- [ ] Phase 3 deployment — run seed script, deploy to Railway, share URL with frontend
 
 ---
 
