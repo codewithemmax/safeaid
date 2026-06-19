@@ -245,9 +245,12 @@ The Team
 
 Ibrahim Ashiah Ajoke
 
+
 ~ Backend Developer
 
 Emmanuel Olayinka Bolaoluwatipoto
+
+
 
 ~ AI/ML Development
 
