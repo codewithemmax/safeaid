@@ -6,6 +6,8 @@ SafeAid is a secure, accessible, and intelligent emergency response platform des
 The access help quickly, discreetly, and safely.
 
 
+
+
 ### Our mission is simple:
 
 No cry for help should go unheard because of fear, lack of internet access, language barriers, or inability to speak.
@@ -137,6 +139,10 @@ When available, SafeAid helps identify the user’s location and nearest support
 
 • Generate insights for support organizations.
 
+---
+
+
+
 
 ---
 
@@ -167,6 +173,58 @@ When available, SafeAid helps identify the user’s location and nearest support
 
 
 ---
+## Demo Flow
+
+```
+SURVIVOR IN DANGER
+        │
+        ▼
+ Sends SMS / Calls Hotline
+        │
+        ▼
+SafeAid Receives Request
+        │
+        ▼
+AI Analyzes Message
+(Risk Level + Keywords + Location)
+        │
+        ▼
+Emergency Classification
+ ├── High Risk
+ ├── Medium Risk
+ └── Information Request
+        │
+        ▼
+AI Matches Survivor
+with Nearby Resources
+        │
+        ▼
+Response Delivered
+via SMS or Voice Call
+        │
+        ▼
+Case Logged Securely
+for Monitoring & Analytics
+```
+
+### Example Scenario
+
+User SMS:
+"I was promised a job in another state but my passport was taken."
+
+AI detects:
+✓ Potential trafficking indicator
+✓ Document confiscation
+✓ High vulnerability
+
+SafeAid Response:
+"You may be experiencing labor trafficking.
+Call NAPTIP: XXX-XXXX
+Nearest support center: XYZ Shelter
+Reply HELP for emergency escalation."
+
+
+---
 
 ##  System Architecture
 
@@ -189,6 +247,93 @@ Support Network Layer → NGOs, Shelters, Emergency Contacts
 
 ---
 
+## AI Tool Loop
+
+```
+Incoming SMS / Voice Call
+            │
+            ▼
+      Speech-to-Text
+       (if voice)
+            │
+            ▼
+      AI Risk Engine
+            │
+            ▼
+Trafficking Detection Model
+            │
+            ▼
+Resource Matching Engine
+            │
+            ▼
+Generate Safe Response
+            │
+            ▼
+SMS / Voice Delivery
+            │
+            ▼
+Analytics Dashboard
+            │
+            ▼
+Feedback Improves Future Responses
+```
+
+### AI Responsibilities
+
+• Detect trafficking indicators
+
+• Assess urgency level
+
+• Classify exploitation type
+
+• Match survivors to support resources
+
+• Generate multilingual responses
+
+• Escalate severe cases
+
+---
+
+## Data Flow Architecture
+
+
+```
+┌───────────────┐
+│ Survivor SMS  │
+└───────┬───────┘
+        │
+        ▼
+┌──────────────────┐
+│ SMS Gateway      │
+│ (Twilio/Africa's │
+│ Talking)         │
+└───────┬──────────┘
+        │
+        ▼
+┌──────────────────┐
+│ SafeAid Backend  │
+│ (API Layer)      │
+└───────┬──────────┘
+        │
+        ▼
+┌──────────────────┐
+│ AI Processing    │
+│ Classification   │
+│ Risk Scoring     │
+└───────┬──────────┘
+        │
+ ┌──────┴────────┐
+ ▼               ▼
+Resource DB   Case Storage
+ ▼               ▼
+Support       Analytics
+Matching      Dashboard
+        │
+        ▼
+ Survivor Receives Help
+ ```
+
+---
 ##  Privacy & Safety
 
 SafeAid is designed with survivor safety as a priority.
@@ -248,6 +393,66 @@ SafeAid is designed with survivor safety as a priority.
 • Survivor follow-up tracking
 
 ---
+## Recommended File Structure
+
+```
+safeaid/
+│
+├── app/
+│   ├── page.tsx
+│   ├── dashboard/
+│   │   └── page.tsx
+│   ├── hotline/
+│   │   └── page.tsx
+│   ├── api/
+│   │   ├── sms/
+│   │   │   └── route.ts
+│   │   ├── voice/
+│   │   │   └── route.ts
+│   │   └── ai/
+│   │       └── route.ts
+│
+├── components/
+│   ├── Navbar.tsx
+│   ├── Sidebar.tsx
+│   ├── AlertCard.tsx
+│   ├── AnalyticsChart.tsx
+│   ├── ResourceCard.tsx
+│   └── CaseTable.tsx
+│
+├── lib/
+│   ├── openai.ts
+│   ├── sms.ts
+│   ├── voice.ts
+│   ├── risk-engine.ts
+│   └── resource-matcher.ts
+│
+├── services/
+│   ├── ai-service.ts
+│   ├── sms-service.ts
+│   ├── hotline-service.ts
+│   └── analytics-service.ts
+│
+├── data/
+│   ├── shelters.json
+│   ├── hotlines.json
+│   └── resources.json
+│
+├── types/
+│   ├── case.ts
+│   ├── survivor.ts
+│   └── alert.ts
+│
+├── public/
+│   ├── logo.svg
+│   └── icons/
+│
+├── README.md
+├── package.json
+├── tsconfig.json
+└── .env.local
+```
+---
 
 ##  Team
 
@@ -273,11 +478,55 @@ The Team
 
 ---
 
+  
+
+
+## Tech Stack
+
+| Category | Technology | Purpose |
+|----------|------------|----------|
+| Frontend | Next.js 15 | Web application framework |
+| Frontend | TypeScript | Type-safe development |
+| Frontend | Tailwind CSS | Responsive styling |
+| Frontend | ShadCN UI | Modern UI components |
+| Backend | Next.js API Routes | Backend endpoints and server logic |
+| Backend | Node.js | Runtime environment |
+| AI | OpenAI API | Risk assessment and response generation |
+| AI | Whisper API | Speech-to-text processing |
+| AI | Risk Classification Engine | Detect trafficking indicators and urgency levels |
+| AI | Resource Matching Engine | Connect survivors to support services |
+| Communication | Twilio SMS | Silent SOS messaging |
+| Communication | Twilio Voice | AI-powered hotline |
+| Database | PostgreSQL | Data storage |
+| Database | Prisma ORM | Database management |
+| Authentication | NextAuth.js | User authentication |
+| Analytics | Recharts | Dashboard visualizations |
+| Deployment | Vercel | Application hosting |
+| Monitoring | Vercel Analytics | Performance tracking |
+| Version Control | Git & GitHub | Source control and collaboration |
+
+## Future Integrations
+
+| Service | Purpose |
+|---------|---------|
+| NAPTIP Integration | Survivor referral and escalation |
+| WhatsApp Business API | Alternative reporting channel |
+| Google Maps API | Location-based resource matching |
+| Translation API | Local language support |
+| Emergency Services API | High-risk case escalation |
+
+
+---
+
 ##  Built For Impact
 
+
+ 
 SafeAid was created to ensure that vulnerable individuals can access help when they need it most-safely, discreetly, and intelligently.
 
 
 Technology should not only be smart. It should save lives.
+
+### Built for the USAII Global AI Hackathon 2026
 
 
