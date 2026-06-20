@@ -73,6 +73,9 @@ Wrap-up (both — Day 2 afternoon):
 | No auth in MVP | Out of scope per project-overview.md, will be noted in Devpost as known gap | June 19 2026 |
 | Voice hotline simulated | Twilio Voice setup would take 4–6 hours — not worth it for one demo screen | June 19 2026 |
 | SHA-256 for phone hashing | Node built-in, no additional dependency, one-way, sufficient for demo-level privacy | June 19 2026 |
+| Brand moved orange → **teal** (`#0D9488`) + amber accent | Orange competed with the risk signal (the brief's #1 rule). Teal frees the warm spectrum for risk alone and matches crisis/anti-trafficking colour language (Polaris, UN Blue Heart). User-authorised redesign. | June 20 2026 |
+| Typography: **Fraunces** (display) + **Plus Jakarta Sans** (UI) | Deliberate, humane pairing — replaces default Inter to read as crafted, not generic. | June 20 2026 |
+| Added public **landing page** at `/`; dashboard moved to `/dashboard` via a `(dashboard)` route group | User requested a marketing/landing surface. Dashboard pages share a sidebar layout under the route group; the root layout is now shell-free. | June 20 2026 |
 
 ---
 
@@ -84,6 +87,14 @@ Wrap-up (both — Day 2 afternoon):
 - Teammate branching to start U08 (Next.js shell)
 - Target: U01–U07 and U08–U11 complete by end of Day 1
 - Emmanuel to deploy backend to Railway by end of Day 1 so teammate can start integration tomorrow morning
+
+**June 20 2026 — Frontend design overhaul (Emmanuel, on `main`)**
+- Frontend Phases 1–3 (U4.x/U5.x) were already complete with mock data and spec-faithful — but read as "AI-generated" (literal execution of the brief).
+- Reworked the whole frontend design system + added a landing page (see Architecture Decisions above for the teal/typography/landing calls).
+- `npm install` was missing → installed deps. Dev server runs via `node node_modules/next/dist/bin/next dev` (`next` not on PATH; SWC falls back after a slow native download — harmless).
+- Verified: `tsc --noEmit` clean; `/`, `/dashboard`, `/help-centers`, `/cases/[id]` all compile and return 200.
+- **Still mock data** — Phase 4 integration (U6.x) against `https://safeaid.onrender.com` not yet wired. `lib/api.ts` remains the scaffold to swap in.
+- Note for teammate: the documented orange palette / "no landing page" intent has changed — `context/ui-context.md` and `frontend/PROGRESS.md` updated to match.
 
 ---
 
