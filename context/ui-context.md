@@ -1,59 +1,83 @@
 # UI context
 
+> **2026-06-20 — design system revised.** The brand moved from sky-blue/orange to a
+> **teal** trust palette with a **warm amber** accent, and a public **landing page** was
+> added at `/` (dashboard moved to `/dashboard`). Rationale below in *Design intent*.
+> The colour tables here now reflect the shipped Tailwind config
+> (`frontend/tailwind.config.ts`), which is the source of truth.
+
 ## Design intent
 
-SafeAid's dashboard must feel calm, clinical, and trustworthy — the same feeling as a well-designed hospital management system. Caseworkers are dealing with high-stakes decisions under pressure. The UI must reduce cognitive load, not add to it.
+SafeAid now has **two surfaces with one identity**:
 
-- No decorative elements, gradients, or animations (except the live-indicator pulse)
-- High information density with generous whitespace
-- Risk levels are the loudest visual signal — everything else is subordinate to them
-- Dark sidebar, white main content area
-- Every piece of AI-generated content is visually distinguished from confirmed data
+1. **The dashboard** (`/dashboard`, `/cases/[id]`, `/help-centers`) stays calm, clinical, and
+   trustworthy — the feeling of a well-designed hospital management system. Caseworkers work
+   under pressure; the UI reduces cognitive load, not adds to it. Dark sidebar, light main area,
+   high density, generous whitespace.
+2. **The landing page** (`/`) is the one place we are expressive — an editorial, humane marketing
+   page (dark hero + light sections) that explains the product and earns trust. It is allowed
+   gradients, depth, and entrance animations; the dashboard is not.
+
+Shared rules across both surfaces:
+
+- **Risk levels are the loudest visual signal** — everything else is subordinate.
+- **Brand is teal, never warm.** This is deliberate: the warm end of the spectrum (red / amber /
+  green) belongs to *risk* alone, so risk reads loudest. The original orange brand competed with
+  the risk signal — teal removes that conflict and matches the colour language of crisis /
+  anti-trafficking support (Polaris, the UN Blue Heart campaign).
+- The amber **accent** is for hope / "human in the loop" notes only, and is never placed beside a
+  risk indicator.
+- Every piece of AI-generated content is visually distinguished and labelled (light-blue block).
+- Dashboard animations are limited to the live-indicator pulse and subtle hover transitions.
+
+## Typography
+
+| Role | Family | Notes |
+|---|---|---|
+| Display (`font-display`) | **Fraunces** (variable serif) | Wordmark, page titles, landing headlines. Warm, humane, editorial. |
+| UI / body (`font-sans`) | **Plus Jakarta Sans** | Everything functional. Loaded via `next/font/google`. |
 
 ---
 
 ## Colour tokens
 
+The shipped palette is light-only (no dark mode — see "What to never do"). Source of truth:
+`frontend/tailwind.config.ts`.
+
 ### Base palette
 
-| Token | Light mode | Dark mode | Usage |
-|---|---|---|---|
-| `surface-sidebar` | `#0F172A` | `#0F172A` | Sidebar background (same in both modes) |
-| `surface-primary` | `#FFFFFF` | `#1E293B` | Main content area, cards |
-| `surface-secondary` | `#F8FAFC` | `#0F172A` | Page background, table stripes |
-| `surface-tertiary` | `#F1F5F9` | `#1E293B` | Hover states, input backgrounds |
-| `text-primary` | `#0F172A` | `#F8FAFC` | Body text, headings |
-| `text-secondary` | `#64748B` | `#94A3B8` | Labels, timestamps, muted info |
-| `text-inverse` | `#F8FAFC` | `#F8FAFC` | Text on dark backgrounds (sidebar) |
-| `border` | `#E2E8F0` | `#334155` | Card borders, dividers |
-| `brand` | `#0EA5E9` | `#38BDF8` | Active nav items, links, primary buttons |
+| Token | Value | Usage |
+|---|---|---|
+| `ink` | `#0B1A20` | Sidebar, landing hero/footer ground (teal-tinted charcoal) |
+| `surface-card` | `#FFFFFF` | Cards, panels |
+| `surface` | `#F6F8F9` | Page background |
+| `surface-sunken` | `#EEF2F4` | Hover wells, input backgrounds, inbound bubbles |
+| `text-primary` | `#0B1A20` | Body text, headings |
+| `text-secondary` | `#5A6B72` | Labels, supporting copy |
+| `text-muted` | `#8A9AA1` | Timestamps, faint metadata |
+| `text-onDark` / `text-onDarkMuted` | `#EAF2F4` / `#9DB2BA` | Text on ink backgrounds |
+| `border` / `border-strong` | `#E3E9EC` / `#CBD5DC` | Card borders, dividers |
+| `brand` (600) | `#0D9488` | Links, primary buttons, active nav, focus. Scale 50–900 available. |
+| `accent` | `#F59E0B` | Warm hope accent (wordmark dot, sparingly). Never beside risk. |
 
 ### Risk level colours
 
-These are the most important tokens in the system. Use them consistently and only for risk level.
+The most important tokens. Use only for risk level.
 
-| Risk level | Background | Text | Border | Usage |
+| Risk level | Solid | Background | Text | Border |
 |---|---|---|---|---|
-| HIGH | `#FEF2F2` | `#991B1B` | `#FECACA` | Case card left border accent, badge |
-| MEDIUM | `#FFFBEB` | `#92400E` | `#FDE68A` | Case card left border accent, badge |
-| LOW | `#F0FDF4` | `#166534` | `#BBF7D0` | Case card left border accent, badge |
-| RESOLVED | `#F8FAFC` | `#64748B` | `#E2E8F0` | Resolved case badge |
-
-In dark mode, use these alternatives:
-
-| Risk level | Background | Text | Border |
-|---|---|---|---|
-| HIGH | `#450A0A` | `#FCA5A5` | `#7F1D1D` |
-| MEDIUM | `#451A03` | `#FCD34D` | `#78350F` |
-| LOW | `#052E16` | `#86EFAC` | `#14532D` |
+| HIGH | `#DC2626` | `#FEF2F2` | `#991B1B` | `#FECACA` |
+| MEDIUM | `#D97706` | `#FFFBEB` | `#92400E` | `#FDE68A` |
+| LOW | `#16A34A` | `#F0FDF4` | `#166534` | `#BBF7D0` |
+| RESOLVED | — | `#F0FDF4` | `#5A6B72` | `#E3E9EC` |
 
 ### AI suggestion colour
 
 | Token | Value | Usage |
 |---|---|---|
-| `ai-bg` | `#EFF6FF` (light) / `#1E3A5F` (dark) | Background of any AI-generated text block |
-| `ai-border` | `#BFDBFE` (light) / `#1D4ED8` (dark) | Left border on AI suggestion blocks |
-| `ai-text` | `#1E40AF` (light) / `#93C5FD` (dark) | "AI suggestion" label text |
+| `ai-bg` | `#EFF6FF` | Background of any AI-generated text block |
+| `ai-border` | `#BFDBFE` | Left border on AI suggestion blocks |
+| `ai-text` | `#1D4ED8` | "AI suggestion" label text |
 
 ---
 
