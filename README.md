@@ -254,7 +254,7 @@ SafeAid is designed with survivor safety as a priority.
 
 ### Product Designer
 
-The Team
+Ibrahim Ashiah Ajoke
 
 ### Frontend Developer
 
