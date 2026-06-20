@@ -213,14 +213,21 @@ User SMS:
 "I was promised a job in another state but my passport was taken."
 
 AI detects:
+
 ✓ Potential trafficking indicator
+
 ✓ Document confiscation
+
 ✓ High vulnerability
 
 SafeAid Response:
+
 "You may be experiencing labor trafficking.
+
 Call NAPTIP: XXX-XXXX
+
 Nearest support center: XYZ Shelter
+
 Reply HELP for emergency escalation."
 
 
