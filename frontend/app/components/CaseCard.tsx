@@ -5,7 +5,6 @@ import RiskBadge from "./RiskBadge";
 import ResourceBadge from "./ResourceBadge";
 
 const RISK_ACCENT: Record<CaseSummary["riskLevel"], string> = {
-  HIGH: "before:bg-risk-high",
   MEDIUM: "before:bg-risk-medium",
   LOW: "before:bg-risk-low",
 };

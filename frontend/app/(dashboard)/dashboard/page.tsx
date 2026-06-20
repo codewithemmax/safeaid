@@ -1,22 +1,42 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import StatsHeader from "@/app/components/StatsHeader";
 import CaseCard from "@/app/components/CaseCard";
 import VoiceTranscriptPanel from "@/app/components/VoiceTranscriptPanel";
 import RiskMixBar from "@/app/components/RiskMixBar";
 import { mockCases, mockVoiceTranscript } from "@/lib/mock-data";
-import type { RiskLevel } from "@/lib/types";
+import type { RiskLevel, CaseSummary } from "@/lib/types";
 
-// HIGH must sort above MEDIUM above LOW — alphabetical won't do this.
-const RISK_ORDER: Record<RiskLevel, number> = { HIGH: 0, MEDIUM: 1, LOW: 2 };
+// MEDIUM must sort above LOW — no more HIGH
+const RISK_ORDER: Record<RiskLevel, number> = { MEDIUM: 0, LOW: 1 };
 
-// --- Phase 1–3: mock data. Swapped for GET /api/cases in U6.1 ---
 export default function DashboardPage() {
-  const cases = mockCases;
+  const [cases, setCases] = useState<CaseSummary[]>(mockCases);
+  const [lastUpdate, setLastUpdate] = useState<string>(
+    new Date().toLocaleTimeString()
+  );
+
+  // Simulate real-time polling: refresh every 5 seconds
+  // In Phase 4, this will call fetchCases() from lib/api.ts
+  useEffect(() => {
+    const pollInterval = setInterval(() => {
+      // For now, just update the timestamp to show it's polling
+      // When connected to real API, this would fetch fresh data:
+      // const freshCases = await fetchCases();
+      // setCases(freshCases);
+      setLastUpdate(new Date().toLocaleTimeString());
+    }, 5000);
+
+    return () => clearInterval(pollInterval);
+  }, []);
+
   const active = cases
     .filter((c) => !c.resolved)
     .sort((a, b) => RISK_ORDER[a.riskLevel] - RISK_ORDER[b.riskLevel]);
   const resolved = cases.filter((c) => c.resolved);
 
-  const highRiskCount = active.filter((c) => c.riskLevel === "HIGH").length;
+  const mediumRiskCount = active.filter((c) => c.riskLevel === "MEDIUM").length;
 
   return (
     <div className="space-y-8">
@@ -28,14 +48,18 @@ export default function DashboardPage() {
           Live alerts
         </h1>
         <p className="mt-1.5 text-sm text-text-secondary">
-          Incoming contacts, triaged by SafeAid. High-risk cases are surfaced
-          first — act on them before anything else.
+          Real-time SMS alerts from survivors seeking support. Emergency calls
+          are routed immediately via phone. Cases below reflect all incoming
+          messages.
+        </p>
+        <p className="mt-2 text-xs text-text-muted">
+          Last updated: {lastUpdate}
         </p>
       </header>
 
       <StatsHeader
         totalActive={active.length}
-        highRisk={highRiskCount}
+        mediumRisk={mediumRiskCount}
         resolvedToday={resolved.length}
       />
 

@@ -5,15 +5,10 @@ const RISK_STYLES: Record<
   RiskLevel,
   { cls: string; label: string; icon: boolean }
 > = {
-  HIGH: {
-    cls: "bg-risk-highBg text-risk-highText border border-risk-highBorder",
-    label: "High risk",
-    icon: true,
-  },
   MEDIUM: {
     cls: "bg-risk-mediumBg text-risk-mediumText border border-risk-mediumBorder",
     label: "Medium risk",
-    icon: false,
+    icon: true,
   },
   LOW: {
     cls: "bg-risk-lowBg text-risk-lowText border border-risk-lowBorder",

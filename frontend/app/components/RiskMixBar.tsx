@@ -2,7 +2,6 @@ import type { CaseSummary, RiskLevel } from "@/lib/types";
 
 const SEGMENTS: { level: RiskLevel; label: string; bar: string; dot: string }[] =
   [
-    { level: "HIGH", label: "High", bar: "bg-risk-high", dot: "bg-risk-high" },
     {
       level: "MEDIUM",
       label: "Medium",

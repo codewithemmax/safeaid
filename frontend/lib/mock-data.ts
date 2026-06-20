@@ -14,13 +14,13 @@ import {
 export const mockCases: CaseSummary[] = [
   {
     id: "c-1042",
-    riskLevel: "HIGH",
+    riskLevel: "MEDIUM",
     anonymizedContact: "Anonymous contact •• 4821",
     aiSummary:
-      "Caller describes being held against their will at a residence in Agege and unable to leave. Expressed fear of being overheard. Immediate shelter requested.",
+      "Caller describes being held against their will at a residence in Agege and unable to leave. Expressed fear of being overheard. Immediate shelter requested. EMERGENCY CALL INITIATED.",
     routing: {
-      resourceType: "shelter",
-      centerName: "Pathfinders Justice Initiative — Lagos Safe House",
+      resourceType: "emergency",
+      centerName: "Emergency Response — NAPTIP",
       distanceKm: 6.2,
     },
     resolved: false,
@@ -32,7 +32,7 @@ export const mockCases: CaseSummary[] = [
     riskLevel: "MEDIUM",
     anonymizedContact: "Anonymous contact •• 1187",
     aiSummary:
-      "Caller reports unpaid wages and confiscated documents from a previous employer. Seeking legal guidance and document recovery support, not in immediate danger.",
+      "Caller reports unpaid wages and confiscated documents from a previous employer. Seeking legal guidance and document recovery support.",
     routing: {
       resourceType: "legal",
       centerName: "WOTCLEF Legal Aid Desk",
@@ -111,7 +111,7 @@ const messagesByCaseId: Record<string, CaseDetail["messages"]> = {
     {
       id: "m-6",
       direction: "outbound",
-      body: "I've found a verified safe house near you and alerted a caseworker. They will reach out shortly with next steps.",
+      body: "I've found a verified safe house near you and alerted a caseworker. They will reach out shortly with next steps. An emergency call has been initiated for your protection.",
       timestamp: "2026-06-20T07:12:00+01:00",
       isAiGenerated: true,
     },

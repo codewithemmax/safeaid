@@ -2,13 +2,13 @@ import { LayoutDashboard, AlertTriangle, CheckCircle2 } from "lucide-react";
 
 interface StatsHeaderProps {
   totalActive: number;
-  highRisk: number;
+  mediumRisk: number;
   resolvedToday: number;
 }
 
 export default function StatsHeader({
   totalActive,
-  highRisk,
+  mediumRisk,
   resolvedToday,
 }: StatsHeaderProps) {
   const stats = [
@@ -20,11 +20,11 @@ export default function StatsHeader({
       value_cls: "text-text-primary",
     },
     {
-      label: "High risk",
-      value: highRisk,
+      label: "Medium-risk cases",
+      value: mediumRisk,
       icon: AlertTriangle,
-      iconWrap: "bg-risk-highBg text-risk-high",
-      value_cls: highRisk > 0 ? "text-risk-high" : "text-text-primary",
+      iconWrap: "bg-risk-mediumBg text-risk-medium",
+      value_cls: mediumRisk > 0 ? "text-risk-medium" : "text-text-primary",
     },
     {
       label: "Resolved today",

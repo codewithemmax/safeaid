@@ -2,9 +2,9 @@
 // Keeping these centralized makes the Phase 4 swap to real API
 // responses a type-compatible, low-risk change.
 
-export type RiskLevel = "HIGH" | "MEDIUM" | "LOW";
+export type RiskLevel = "MEDIUM" | "LOW";
 
-export type ResourceType = "shelter" | "food" | "legal" | "medical" | "jobs";
+export type ResourceType = "shelter" | "food" | "legal" | "medical" | "jobs" | "emergency";
 
 export interface RoutingInfo {
   resourceType: ResourceType;
